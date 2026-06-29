@@ -1,68 +1,158 @@
-.container{
-    width: 40%;
-    margin-top: 50px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
     background-color: darkcyan;
-    border: none;
     padding: 30px;
     border-radius: 10px;
-
 }
-h2{
+
+h2 {
     text-align: center;
     color: white;
+    margin-bottom: 20px;
 }
-.form-group{
-   display: flex;
-   flex-direction: row;
-   margin: 20px;
-   width:auto;
 
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-button{
-    margin: left 10px; 
+
+.form-group input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
     background-color: rgb(1, 50, 65);
     color: blanchedalmond;
+    border: none;
     border-radius: 5px;
-    padding: 10px;
-    width: 20%;
+    padding: 10px 15px;
+    min-width: 90px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
-.list{
+
+button:hover {
+    background-color: rgb(2, 74, 95);
+}
+
+.list {
     margin-top: 30px;
 }
-li{
+
+li {
     margin-bottom: 15px;
-    margin-left: -12px;
-    background-color: black!important;
-    color: white!important;
-    border: none;
-    list-style-type: none;
-    border-radius: 3px;
-    padding: 10px;
+    background-color: black !important;
+    color: white !important;
+    list-style: none;
+    border-radius: 5px;
+    padding: 12px;
 }
-.list-items{
+
+.list-items {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.list-items .list-item-list{
+
+.list-item-list {
     flex: 1;
+    word-break: break-word;
 }
-.list-items .list-item-icons{
-    padding-left: 5px;
-    font-size: 25px;
+
+.list-item-icons {
+    display: flex;
+    gap: 10px;
+    padding-left: 10px;
+    font-size: 22px;
     cursor: pointer;
 }
-#complete{
+
+#complete {
     color: green;
 }
-#delete{
+
+#edit {
+    color: dodgerblue;
+}
+
+#delete {
     color: red;
 }
-#edit{
-    color: blue;
-}
-#list-item{
+
+#list-item {
     text-decoration: line-through;
-    opacity: 0.3;
+    opacity: 0.4;
 }
-    
+
+/* ===========================
+   Tablet (768px and below)
+=========================== */
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+    }
+
+    button {
+        min-width: 80px;
+    }
+}
+
+/* ===========================
+   Mobile (576px and below)
+=========================== */
+
+@media (max-width: 576px) {
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-group input,
+    button {
+        width: 100%;
+    }
+
+    .list-items {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .list-item-icons {
+        width: 100%;
+        justify-content: flex-end;
+        font-size: 20px;
+    }
+}
