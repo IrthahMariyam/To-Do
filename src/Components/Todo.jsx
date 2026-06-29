@@ -74,59 +74,77 @@ function Todo() {
         setEditId(editItem.id);
     };
 
-    return (
-        <div className='container'>
-            <h2>TODO APP</h2>
-            <form className='form-group' onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={todo}
-                    ref={inputRef}
-                    placeholder='Enter your todo'
-                    className='form-control'
-                    onChange={(e) => setTodo(e.target.value)}
-                />
-                <button type="submit">
-                    {editId ? 'UPDATE' : 'ADD'}
-                </button>
-            </form>
+    return  (
+    <div className="container todo-container">
 
-            <div className='list'>
-                <ul>
-                    {todos.map((to) => (
-                        <li className='list-items' key={to.id}>
-                            <div
-                                className='list-item-list'
-                                id={to.status ? 'list-item' : null}
-                            >
-                                {to.list}
-                            </div>
-                            <span>
-                                <IoMdDoneAll
-                                    className='list-item-icons'
-                                    id='complete'
-                                    title='Complete'
-                                    onClick={() => onComplete(to.id)}
-                                />
-                                <FiEdit
-                                    className='list-item-icons'
-                                    id='edit'
-                                    title='Edit'
-                                    onClick={() => onEdit(to.id)}
-                                />
-                                <MdDelete
-                                    className='list-item-icons'
-                                    id='delete'
-                                    title='Delete'
-                                    onClick={() => onDelete(to.id)}
-                                />
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    );
+      <h2 className="mb-4">TODO APP</h2>
+
+      <form
+        className="d-flex flex-column flex-sm-row gap-2"
+        onSubmit={handleSubmit}
+      >
+        <input
+          ref={inputRef}
+          type="text"
+          className="form-control"
+          placeholder="Enter your todo"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+        />
+
+        <button type="submit" className="add-btn">
+          {editId ? "UPDATE" : "ADD"}
+        </button>
+      </form>
+
+      <div className="list mt-4">
+
+        <ul className="p-0">
+
+          {todos.map((to) => (
+
+            <li className="list-items" key={to.id}>
+
+              <div
+                className={`list-item-list ${
+                  to.status ? "completed" : ""
+                }`}
+              >
+                {to.list}
+              </div>
+
+              <div className="icons">
+
+                <IoMdDoneAll
+                  id="complete"
+                  className="list-item-icons"
+                  onClick={() => onComplete(to.id)}
+                />
+
+                <FiEdit
+                  id="edit"
+                  className="list-item-icons"
+                  onClick={() => onEdit(to.id)}
+                />
+
+                <MdDelete
+                  id="delete"
+                  className="list-item-icons"
+                  onClick={() => onDelete(to.id)}
+                />
+
+              </div>
+
+            </li>
+
+          ))}
+
+        </ul>
+
+      </div>
+
+    </div>
+  );
 }
 
 export default Todo;
