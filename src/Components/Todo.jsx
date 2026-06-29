@@ -22,8 +22,8 @@ function Todo() {
 
     useEffect(() => {
         inputRef.current.focus();
-         localStorage.setItem("todos", JSON.stringify(todos));
-    }, [todo],[todos]);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}, [todo, todos]);
 
    
     const handleSubmit = (e) => {
