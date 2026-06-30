@@ -104,15 +104,27 @@ h2{
     }
 
     .list-items{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
+        flex-direction:row;       /* keep same line */
+        align-items:center;
+        flex-wrap:nowrap;
+        gap:8px;
+        padding:10px;
+    }
+
+    .list-item-list{
+        font-size:14px;
     }
 
     .icons{
-        width:100%;
+        width:auto;
         justify-content:flex-end;
-        margin-left:0;
+        margin-left:10px;
+        gap:10px;
+        flex-shrink:0;
+    }
+
+    .list-item-icons{
+        font-size:20px;
     }
 
 }
